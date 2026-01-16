@@ -131,6 +131,30 @@ Services encapsulate business logic, are stateless, and depend on repositories.
 
 **Always include folder setup as the first task in any plan.**
 
+### Test-Driven Development (TDD)
+
+**Testing is mandatory for backend code, pragmatic for frontend.**
+
+**Coverage Targets:**
+| Layer | Target |
+|-------|--------|
+| Services/Repositories | 80%+ |
+| API/Controllers | 70%+ |
+| Frontend Components | 40-60% (critical paths) |
+| Styling | Optional |
+
+**TDD Task Structure:**
+```markdown
+**Test First**:
+- [ ] Write tests for expected behavior
+- [ ] Include edge cases
+
+**Then Implement**:
+- [ ] Code to pass tests
+```
+
+**Frontend Philosophy:** Test user-critical flows, skip styling tests.
+
 ## Step 3: Agile/SCRUM Structuring
 
 Organize output using Agile concepts:

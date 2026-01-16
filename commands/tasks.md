@@ -114,9 +114,20 @@ Examples:
 ## Technical Notes
 [Any additional context: related docs, similar implementations, gotchas]
 
+## Testing Requirements (TDD)
+**For Backend/Library Code:**
+- [ ] Write tests FIRST (before implementation)
+- [ ] Target 80%+ coverage for services/repositories
+- [ ] Include edge cases and error scenarios
+
+**For Frontend Code:**
+- [ ] Test critical user flows only (40-60% coverage)
+- [ ] Focus on forms, validation, error states
+- [ ] Skip pure styling/layout tests
+
 ## Definition of Done
+- [ ] Tests written and passing (backend: 80%+, frontend: critical paths)
 - [ ] Code implemented and self-reviewed
-- [ ] Tests written and passing
 - [ ] Documentation updated (if applicable)
 - [ ] PR created and ready for review
 ```

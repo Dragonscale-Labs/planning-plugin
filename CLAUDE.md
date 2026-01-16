@@ -123,6 +123,43 @@ Services encapsulate business logic, are stateless, and depend on repositories.
 
 **Folder structure is architecture made visible.** Proper folders make patterns obvious and enforceable.
 
+### 7. Test-Driven Development (TDD)
+
+**Testing is not optional for backend/library code.**
+
+**Coverage Targets:**
+
+| Layer | Target | Notes |
+|-------|--------|-------|
+| Services | 80%+ | Required - business logic must be tested |
+| Repositories | 80%+ | Required - data access must be tested |
+| API/Controllers | 70%+ | Required - endpoints must be tested |
+| Utilities | 90%+ | Required - helpers must be bulletproof |
+| Frontend Components | 40-60% | Critical paths only |
+| Frontend Styling | 0% | Skip unless visual regression needed |
+
+**TDD Workflow:**
+1. **Test First** - Write failing tests that define expected behavior
+2. **Implement** - Write code to make tests pass
+3. **Refactor** - Clean up while keeping tests green
+
+**Task Structure for TDD:**
+```markdown
+**Test First**:
+- [ ] Write tests for success case
+- [ ] Write tests for error cases
+- [ ] Write tests for edge cases
+
+**Then Implement**:
+- [ ] Implementation code to pass tests
+```
+
+**Frontend Testing Philosophy:**
+- Test user-critical flows (login, checkout, forms)
+- Test error handling and validation
+- Don't test styling, layout, or purely visual elements
+- Prefer integration tests over unit tests for UI
+
 ## Task Management Integration
 
 ### Linear MCP
@@ -192,3 +229,5 @@ planning-plugin/
 5. **Preserve the WHY** - Intent matters as much as implementation
 6. **Task 0 always** - Folder architecture with CLAUDE.md files comes before any implementation
 7. **Document in-place** - Future agents inherit context from folder CLAUDE.md files
+8. **Test first for backend** - 80%+ coverage required for services/repositories
+9. **Pragmatic frontend testing** - 40-60% coverage on critical paths, skip styling tests

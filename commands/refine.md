@@ -114,6 +114,44 @@ This folder contains business logic services following the Service Layer pattern
 
 **Always include folder CLAUDE.md tasks in foundation work.**
 
+### Test-Driven Development (TDD)
+
+**Testing is not optional for backend/library code.** Structure tasks to encourage TDD:
+
+1. **Write test first** - Each implementation task should mention writing tests before code
+2. **Backend coverage target: 80%+** - Services, repositories, utilities must be well-tested
+3. **Frontend coverage target: 40-60%** - Focus on critical paths, not exhaustive coverage
+
+**Testing by Layer:**
+
+| Layer | Coverage Target | What to Test |
+|-------|----------------|--------------|
+| Models/Data | 90%+ | Validations, computed properties, relationships |
+| Repositories | 80%+ | Query logic, edge cases, error handling |
+| Services | 80%+ | Business logic, state transitions, integrations |
+| API/Controllers | 70%+ | Request validation, response formatting, auth |
+| Frontend Components | 40-60% | Critical user flows, form validation, error states |
+| Frontend Styling | Optional | Visual regression only if critical |
+
+**Task Structure for TDD:**
+```markdown
+### [Service] Implement UserAuthService `[Medium]`
+**Test First**:
+- [ ] Write tests for successful authentication
+- [ ] Write tests for invalid credentials
+- [ ] Write tests for account lockout after failures
+
+**Then Implement**:
+- [ ] Implement authentication logic to pass tests
+- [ ] Implement lockout logic to pass tests
+```
+
+**Frontend Testing Philosophy:**
+- Test user-critical flows (login, checkout, data submission)
+- Test error handling and edge cases users will hit
+- Don't test styling, layout, or purely visual elements
+- Integration tests > unit tests for UI components
+
 ## Step 3: Agile/SCRUM Structure
 
 Organize the refined plan using Agile concepts:

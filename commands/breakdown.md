@@ -116,6 +116,50 @@ Example task:
 **Dependencies**: None - this is always first
 ```
 
+### Test-Driven Development (TDD)
+
+**Every task breakdown must include testing requirements.**
+
+**TDD Task Structure:**
+1. **Test First** - Write failing tests that define expected behavior
+2. **Implement** - Write code to make tests pass
+3. **Refactor** - Clean up while keeping tests green
+
+**Coverage Expectations by Layer:**
+
+| Layer | Target | Priority |
+|-------|--------|----------|
+| Services/Business Logic | 80%+ | **Required** |
+| Repositories/Data Access | 80%+ | **Required** |
+| API/Controllers | 70%+ | **Required** |
+| Utilities/Helpers | 90%+ | **Required** |
+| Frontend Components | 40-60% | Critical paths only |
+| Frontend Styling | 0% | Skip unless visual regression needed |
+
+**Example Task with TDD:**
+```markdown
+#### 1.2 [Service] Implement PaymentService `[Medium]`
+**Test First**:
+- [ ] Test successful payment processing
+- [ ] Test handling of declined cards
+- [ ] Test idempotency (duplicate requests)
+
+**Then Implement**:
+- [ ] PaymentService class
+- [ ] Process payment method
+- [ ] Error handling
+
+**Acceptance Criteria**:
+- [ ] All tests pass
+- [ ] 80%+ code coverage
+```
+
+**Frontend Testing - Be Pragmatic:**
+- Focus on user-critical flows (forms, checkout, auth)
+- Test error states and validation
+- Skip testing pure styling/layout
+- Prefer integration tests over unit tests for UI
+
 ## Step 4: Sprint-Ready Output
 
 ```markdown
