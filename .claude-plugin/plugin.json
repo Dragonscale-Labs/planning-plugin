@@ -5,10 +5,7 @@
   "author": {
     "name": "ndx"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonscale-labs/planning-plugin"
-  },
+  "repository": "https://github.com/dragonscale-labs/planning-plugin",
   "homepage": "https://dragonscale.xyz",
   "keywords": [
     "planning",
