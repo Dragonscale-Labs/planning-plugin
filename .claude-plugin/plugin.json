@@ -7,14 +7,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ndx/planning-plugin"
+    "url": "https://github.com/dragonscale-labs/planning-plugin"
   },
+  "homepage": "https://dragonscale.xyz",
   "keywords": [
     "planning",
     "todos",
     "linear",
     "jira",
     "task-management",
-    "productivity"
+    "productivity",
+    "agile",
+    "scrum",
+    "engineering"
   ]
 }

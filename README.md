@@ -1,30 +1,33 @@
 # Planning Plugin for Claude Code
 
-A Claude Code plugin that helps organize raw ideas, todos, and brainstorms into structured, actionable plans.
+A Claude Code plugin that transforms raw ideas, todos, and brainstorms into well-architected, actionable plans with proper design patterns and Agile/SCRUM structure.
 
-## Features
-
-- **Refine Ideas**: Structure unorganized thoughts into clear plans
-- **Save Sessions**: Preserve planning work for future reference
-- **Create Tasks**: Generate tickets in Linear or Jira
-- **Break Down Complexity**: Decompose large tasks into manageable pieces
-- **Auto-Planning Skill**: Claude automatically helps structure planning work
+Part of the [Dragonscale Marketplace](https://github.com/Dragonscale-Labs/marketplace).
 
 ## Installation
 
-### Option 1: Load Directly (Development/Testing)
+### From Dragonscale Marketplace (Recommended)
+
+First, add the Dragonscale marketplace to Claude Code:
 
 ```bash
-claude --plugin-dir /path/to/planning-plugin
+claude /plugin marketplace add https://github.com/Dragonscale-Labs/marketplace
 ```
 
-### Option 2: Install from Marketplace
-
-If this plugin is published to a marketplace:
+Then install the planning plugin:
 
 ```bash
-/plugin install plan
+claude /plugin install dragonscale/plan
 ```
+
+## Features
+
+- **Proactive Discovery** - Asks questions to surface requirements you haven't thought of
+- **Design Patterns** - Silently structures work so proper patterns emerge (Repository, Service Layer, Factory, etc.)
+- **Agile/SCRUM** - Organizes plans with Epics, User Stories, Tasks, and Acceptance Criteria
+- **Self-Contained Tasks** - Every task includes full context for execution in a fresh session
+- **Folder Architecture** - Creates CLAUDE.md files in code folders so future agents inherit architectural context
+- **Task Management** - Creates tickets in Linear or Jira (auto-detects connected MCPs)
 
 ## Commands
 
@@ -34,6 +37,14 @@ If this plugin is published to a marketplace:
 | `/plan:session` | Save current planning work | `/plan:session auth-feature` |
 | `/plan:tasks` | Create tasks in Linear/Jira | `/plan:tasks` |
 | `/plan:breakdown` | Decompose complex task | `/plan:breakdown Implement user authentication` |
+
+## Auto-Invoked Skill
+
+The plugin includes a **planning-assistant** skill that automatically activates when Claude detects:
+- Raw lists of todos or ideas
+- Brainstorming sessions
+- Unstructured feature requests
+- "Help me plan..." type requests
 
 ## Task Management Setup
 
@@ -59,10 +70,31 @@ The `/plan:tasks` command auto-detects which MCPs are connected.
 
 ## Planning Principles
 
-- **Easy wins first**: Tasks are prioritized by difficulty
-- **Break down complexity**: Hard tasks get decomposed
-- **Focus on what, not how**: Plans cover goals and requirements, not implementation
-- **Preserve context**: Session files keep decisions and rationale
+### Proactive Discovery
+Every command asks 2-4 targeted questions to surface hidden requirements before structuring plans.
+
+### Design Patterns Applied Silently
+Plans structure work so these patterns emerge naturally:
+- Repository Pattern (data access)
+- Service Layer (business logic)
+- Factory Pattern (object creation)
+- Strategy Pattern (interchangeable behaviors)
+- Observer Pattern (events)
+- Dependency Injection (testability)
+
+### Task 0: Folder Architecture
+Every plan includes a "Sprint 0" task that:
+- Creates organized folder structure (`models/`, `services/`, `repositories/`, `api/`)
+- Adds `CLAUDE.md` to each folder documenting the pattern
+- Enables future agents to understand architecture by reading folder docs
+
+### Self-Contained Tasks
+Every task includes:
+- **Context** - Why this task exists
+- **Architectural Purpose** - What pattern it implements
+- **Implementation Guidance** - Senior-level approach
+- **Acceptance Criteria** - How to verify completion
+- **Anti-patterns** - Mistakes to avoid
 
 ## File Structure
 
@@ -82,6 +114,12 @@ planning-plugin/
 ├── CLAUDE.md             # Plugin instructions for Claude
 └── README.md             # This file
 ```
+
+## Links
+
+- [Dragonscale Marketplace](https://github.com/Dragonscale-Labs/marketplace)
+- [Homepage](https://dragonscale.xyz)
+- [Report Issues](https://github.com/dragonscale-labs/planning-plugin/issues)
 
 ## License
 
