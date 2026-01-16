@@ -14,6 +14,7 @@ This is the **Planning Plugin** for Claude Code—a software engineering plannin
 2. **Patterns before code** - Structure work so proper design patterns emerge naturally
 3. **Foundation before features** - Build abstractions that make implementation easier
 4. **Context in every task** - Each task must be executable without prior knowledge
+5. **Architecture in-place** - Document patterns in folder CLAUDE.md files for future agents
 
 ## Available Commands
 
@@ -94,6 +95,34 @@ Prioritize by difficulty:
 
 Order tasks with easy items first to build momentum.
 
+### 6. Folder Architecture & CLAUDE.md Propagation
+
+**Every plan must include Task 0: folder structure with CLAUDE.md files.**
+
+Well-organized folder architecture enables future agentic work:
+- Each architectural layer gets its own folder
+- Each folder gets a CLAUDE.md documenting the pattern
+- Future agents read folder CLAUDE.md to understand conventions
+
+Example `services/CLAUDE.md`:
+```markdown
+# Services Layer
+
+## Pattern: Service Layer
+Services encapsulate business logic, are stateless, and depend on repositories.
+
+## Conventions
+- File naming: `{domain}_service.py`
+- All services use dependency injection
+- Return DTOs, not raw models
+
+## Anti-Patterns
+- Don't access database directly (use repositories)
+- Don't handle HTTP concerns (controllers do that)
+```
+
+**Folder structure is architecture made visible.** Proper folders make patterns obvious and enforceable.
+
 ## Task Management Integration
 
 ### Linear MCP
@@ -161,3 +190,5 @@ planning-plugin/
 3. **Vertical slices** - Deliver working increments, not horizontal layers
 4. **Self-contained tasks** - Future-you (or another dev) needs full context
 5. **Preserve the WHY** - Intent matters as much as implementation
+6. **Task 0 always** - Folder architecture with CLAUDE.md files comes before any implementation
+7. **Document in-place** - Future agents inherit context from folder CLAUDE.md files

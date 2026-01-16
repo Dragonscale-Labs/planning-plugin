@@ -124,7 +124,47 @@ Examples:
 ### Labels
 - Difficulty: `easy`, `medium`, or `hard`
 - Layer: `data`, `service`, `api`, `ui`
-- Type: `foundation`, `feature`, `enhancement`, `bugfix`
+- Type: `foundation`, `feature`, `enhancement`, `bugfix`, `architecture`
+
+## Special Task: Folder Architecture Setup
+
+**Always create a Task 0 for folder architecture setup.** This task establishes the folder structure and creates CLAUDE.md files that future agents will read.
+
+Example Task 0:
+```markdown
+## Title
+[Architecture] Set up folder structure with CLAUDE.md documentation
+
+## Overview
+Establish organized folder architecture with CLAUDE.md files in each layer folder. This enables future agents to understand patterns and conventions without external context.
+
+## Context
+Before any implementation, we need documented architecture. Each folder containing a design pattern gets a CLAUDE.md explaining:
+- What pattern this folder implements
+- Naming conventions
+- How files should be structured
+- Common anti-patterns to avoid
+
+## Implementation Guidance
+Create these folders and CLAUDE.md files:
+- `src/models/CLAUDE.md` - Data model conventions
+- `src/repositories/CLAUDE.md` - Repository pattern documentation
+- `src/services/CLAUDE.md` - Service layer conventions
+- `src/api/CLAUDE.md` - API/Controller conventions
+
+Each CLAUDE.md should include:
+1. Pattern name and purpose
+2. File/class naming conventions
+3. Dependency rules (what can import what)
+4. Example code structure
+5. Testing expectations
+
+## Acceptance Criteria
+- [ ] All architectural folders created
+- [ ] Each folder has CLAUDE.md
+- [ ] CLAUDE.md files contain pattern docs, conventions, and examples
+- [ ] Future agents can understand architecture by reading folder docs
+```
 
 ## Jira-Specific Adaptations
 
@@ -160,3 +200,4 @@ Before creating each task, verify:
 - [ ] Acceptance criteria are specific and testable
 - [ ] Dependencies are explicitly listed
 - [ ] Anti-patterns are noted where relevant
+- [ ] Task 0 (folder architecture + CLAUDE.md) is included if this is a new feature area

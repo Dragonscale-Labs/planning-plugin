@@ -82,6 +82,38 @@ Structure tasks to build proper layers:
 - **Interface Segregation** - Keep components focused
 - **Dependency Inversion** - Depend on abstractions
 
+### Folder Architecture & CLAUDE.md Propagation
+
+**Critical**: Well-organized folder structure enables future agents to work effectively. For every architectural layer or pattern being implemented:
+
+1. **Plan the folder structure** - Define where code should live
+2. **Include CLAUDE.md creation tasks** - Each folder with a design pattern gets its own CLAUDE.md
+3. **Document the pattern in-place** - Future agents read folder CLAUDE.md for context
+
+Example folder CLAUDE.md for a `services/` directory:
+```markdown
+# Services Layer
+
+This folder contains business logic services following the Service Layer pattern.
+
+## Pattern: Service Layer
+- Services encapsulate business logic
+- Services are stateless
+- Services depend on repositories, not direct data access
+- One service per domain concept
+
+## Conventions
+- File naming: `{domain}_service.py` or `{Domain}Service.ts`
+- All services implement dependency injection
+- Services return DTOs, not raw database models
+
+## Testing
+- Unit test each service with mocked repositories
+- Integration tests for cross-service workflows
+```
+
+**Always include folder CLAUDE.md tasks in foundation work.**
+
 ## Step 3: Agile/SCRUM Structure
 
 Organize the refined plan using Agile concepts:
@@ -120,6 +152,16 @@ Acceptance Criteria:
 
 These tasks establish the architectural foundation. Complete these first.
 
+### 0. [Folder Structure & Architecture Docs] `[Easy]`
+**Purpose**: Establish organized folder structure with CLAUDE.md files for each layer
+**Delivers**:
+- Folder structure for all architectural layers
+- CLAUDE.md in each folder documenting the pattern and conventions
+**Acceptance Criteria**:
+- [ ] Folders created: `models/`, `repositories/`, `services/`, `api/`, etc.
+- [ ] Each folder has CLAUDE.md with pattern documentation
+- [ ] Future agents can understand the architecture by reading folder docs
+
 ### 1. [Data Layer Task] `[Easy/Medium]`
 **Purpose**: [Why this matters architecturally]
 **Delivers**: [Concrete output]
@@ -157,3 +199,5 @@ Build on the foundation to deliver user-facing value.
 - **Front-load foundation work** - Proper abstractions make everything else easier
 - **Make tasks self-contained** - Each task description should carry enough context to execute in a fresh session
 - **Preserve the WHY** - User stories and purpose statements ensure context isn't lost
+- **Document architecture in-place** - Every architectural folder gets a CLAUDE.md so future agents have context
+- **Folder structure is architecture** - Well-organized folders make patterns obvious and enforceable

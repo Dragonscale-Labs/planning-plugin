@@ -104,6 +104,33 @@ Always structure work in proper layers:
 - **Interface Segregation**: Keep components focused
 - **Dependency Inversion**: Depend on abstractions
 
+### Folder Architecture & CLAUDE.md Propagation
+
+**Critical for enabling future agentic work.** Every plan should include:
+
+1. **Folder Structure Task (Task 0)** - Establish where code lives
+2. **CLAUDE.md per folder** - Document the pattern in-place
+3. **Conventions in-context** - Future agents read folder docs to understand how to implement
+
+Example folder CLAUDE.md (for `services/`):
+```markdown
+# Services Layer
+
+## Pattern: Service Layer
+Services encapsulate business logic, are stateless, and depend on repositories.
+
+## Conventions
+- File naming: `{domain}_service.py`
+- All services use dependency injection
+- Return DTOs, not raw models
+
+## Anti-Patterns
+- Don't access database directly (use repositories)
+- Don't handle HTTP concerns (that's for controllers)
+```
+
+**Always include folder setup as the first task in any plan.**
+
 ## Step 3: Agile/SCRUM Structuring
 
 Organize output using Agile concepts:
@@ -154,6 +181,9 @@ Specific, testable conditions for "done":
 
 ## Tasks (Prioritized)
 
+### Architecture (Sprint 0)
+0. [ ] Set up folder structure with CLAUDE.md files `[Easy]`
+
 ### Foundation
 1. [ ] [Task] `[Easy]` - [Brief context]
 
@@ -181,7 +211,14 @@ Specific, testable conditions for "done":
 
 ### Tasks
 
-#### Foundation (Do First)
+#### Architecture (Do First - Sprint 0)
+**T-0: Folder Structure & CLAUDE.md** `[Easy]`
+- Context: Enable future agents to understand patterns
+- Approach: Create folders + CLAUDE.md for each layer
+- Delivers: Documented folder architecture
+- Criteria: Any agent can understand architecture by reading folder docs
+
+#### Foundation (Sprint 1)
 **T-1: [Task Title]** `[Difficulty]`
 - Context: [Why this task]
 - Approach: [How to implement]
@@ -190,10 +227,11 @@ Specific, testable conditions for "done":
 
 #### Implementation
 **T-2: [Task Title]** `[Difficulty]`
-- Depends on: T-1
+- Depends on: T-0, T-1
 ...
 
 ### Sprint Recommendation
+- Sprint 0: T-0 (Architecture setup with CLAUDE.md files)
 - Sprint 1: T-1, T-2 (Foundation + MVP)
 - Sprint 2: T-3, T-4 (Enhancements)
 ```
@@ -222,3 +260,5 @@ After planning work, suggest next steps:
 - **Missing context**: Tasks must stand alone
 - **Ignoring layers**: Don't mix data access with business logic
 - **Big bang delivery**: Prefer incremental, vertical slices
+- **Skipping Task 0**: Always set up folder architecture with CLAUDE.md first
+- **Undocumented patterns**: Every architectural folder needs its own CLAUDE.md

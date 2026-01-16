@@ -91,6 +91,31 @@ Silently structure tasks to implement:
 - Form validation layers
 - Error boundary handling
 
+### Folder Architecture & CLAUDE.md Propagation
+
+**Every breakdown MUST include a Task 0: folder structure setup.**
+
+For any complex feature:
+1. **Define folder structure first** - Where will each layer's code live?
+2. **Create CLAUDE.md for each folder** - Document the pattern in-place
+3. **Future agents inherit context** - They read folder CLAUDE.md to understand conventions
+
+Example task:
+```markdown
+#### 0.1 [Folder Structure & Architecture Docs] `[Easy]` - Sprint 0
+**Context**: Before implementing, establish folder structure with documentation
+**Architectural Purpose**: Enable future agents to understand and follow patterns
+**Implementation Notes**:
+- Create `src/services/` with CLAUDE.md documenting Service Layer pattern
+- Create `src/repositories/` with CLAUDE.md documenting Repository pattern
+- Create `src/models/` with CLAUDE.md documenting data conventions
+**Acceptance Criteria**:
+- [ ] All architectural folders exist
+- [ ] Each folder has CLAUDE.md with pattern + conventions + examples
+- [ ] Any agent can understand the architecture by reading folder docs
+**Dependencies**: None - this is always first
+```
+
 ## Step 4: Sprint-Ready Output
 
 ```markdown
@@ -152,9 +177,18 @@ Silently structure tasks to implement:
 - `IUserRepository` - Abstracts user data access
 - `NotificationService` - Handles all notification logic
 
+### Folder CLAUDE.md Files
+- `src/services/CLAUDE.md` - Service layer conventions
+- `src/repositories/CLAUDE.md` - Repository pattern docs
+- `src/models/CLAUDE.md` - Data model conventions
+
 ---
 
 ## Sprint Recommendations
+
+### Sprint 0 (Architecture Setup)
+- Tasks: 0.1 (folder structure + CLAUDE.md files)
+- Delivers: Documented architecture foundation
 
 ### Sprint 1 (Foundation + MVP)
 - Tasks: 1.1, 1.2, 1.3
@@ -191,3 +225,5 @@ This ensures any developer (or Claude instance) can pick up the task cold.
 - **Patterns emerge from structure** - Users don't need to know the pattern names
 - **Self-contained tasks** - Each task is a complete unit of work
 - **Explicit > implicit** - When in doubt, write it out
+- **Folder structure is Sprint 0** - Always establish architecture with CLAUDE.md files first
+- **Document patterns in-place** - Future agents read folder CLAUDE.md for context
