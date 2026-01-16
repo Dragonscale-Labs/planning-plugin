@@ -11,7 +11,7 @@ Part of the [Dragonscale Marketplace](https://github.com/Dragonscale-Labs/market
 First, add the Dragonscale marketplace to Claude Code:
 
 ```bash
-claude /plugin marketplace add https://github.com/Dragonscale-Labs/marketplace
+claude /plugin marketplace add Dragonscale-Labs/marketplace
 ```
 
 Then install the planning plugin:
